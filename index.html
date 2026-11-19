@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bud Hennekes, Senior Copywriter for Acorns</title>
+<meta name="description" content="A personal application for the Senior Copywriter role at Acorns.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+<style>
+
+/* ===== TOKENS ===== */
+:root {
+  --ink:    #0d2218;
+  --forest: #0f3322;
+  --fern:   #1a5035;
+  --sage:   #3a7a52;
+  --sprout: #4ebe2f;
+  --light:  #e5f5d6;
+  --foam:   #f0f8e8;
+  --cream:  #f7f9f3;
+  --white:  #ffffff;
+  --rule:   #c5deb2;
+  --muted:  #4a6a52;
+  --r:      12px;
+  --ease:   cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+a:focus-visible {
+  outline: 3px solid var(--sprout);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ===== SKIP LINK ===== */
+.skip { position: absolute; left: -9999px; top: 16px; padding: 8px 16px; background: var(--fern); color: white; font-weight: 700; font-size: 14px; border-radius: 6px; z-index: 9999; text-decoration: none; }
+.skip:focus { left: 16px; outline: 3px solid white; }
+
+/* ===== SHELL ===== */
+.sh { width: min(1100px, calc(100% - 48px)); margin-inline: auto; }
+
+/* ===== LABEL ===== */
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247, 249, 243, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 68px;
+}
+.brand {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  color: var(--ink);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.nav-links a { text-decoration: none; }
+.nav-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.nav-resume {
+  border: 1.5px solid var(--ink);
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-weight: 700;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+.nav-resume:hover { background: var(--ink); color: white; text-decoration: none !important; }
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--forest);
+  color: white;
+  padding: 80px 0 0;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 48px;
+  align-items: end;
+}
+.hero .label { color: #7bbf96; }
+.hero h1 {
+  font-size: clamp(44px, 5.8vw, 82px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.055em;
+  margin: 16px 0 28px;
+  color: white;
+}
+.hero-sub {
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.55;
+  color: #b8d9c5;
+  max-width: 540px;
+  letter-spacing: -0.01em;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 36px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.15s var(--ease), background 0.2s var(--ease);
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary { background: var(--sprout); color: var(--forest); }
+.btn-primary:hover { background: #5fd43a; }
+.btn-ghost { color: #b8d9c5; font-size: 15px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.btn-ghost:hover { color: white; }
+.hero-meta {
+  font-size: 14px;
+  color: #7bbf96;
+  margin-top: 20px;
+}
+.hero-meta a { color: inherit; text-underline-offset: 4px; }
+.portrait-wrap {
+  width: min(100%, 300px);
+  justify-self: end;
+  background: #1d5a38;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  align-self: end;
+}
+.portrait-wrap img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ===== EXPERIENCE BAR ===== */
+.exp-bar {
+  background: var(--sprout);
+  color: var(--forest);
+  padding: 18px 0;
+}
+.exp-inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.exp-stat {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.exp-stat span {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-right: 6px;
+}
+.exp-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(15, 51, 34, 0.3);
+  flex-shrink: 0;
+}
+
+/* ===== SECTIONS ===== */
+section { padding: 90px 0; }
+.section-header { margin-bottom: 56px; }
+.section-header h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  margin-top: 10px;
+}
+.section-header p {
+  font-size: clamp(17px, 1.8vw, 20px);
+  color: var(--muted);
+  margin-top: 16px;
+  max-width: 580px;
+  letter-spacing: -0.01em;
+}
+
+/* ===== WORK ===== */
+.work-list {
+  display: grid;
+  gap: 0;
+}
+.work-item {
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 32px;
+  align-items: start;
+  padding: 36px 0;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+}
+.work-item:last-child { border-bottom: 1px solid var(--rule); }
+.work-num {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  padding-top: 4px;
+}
+.work-body h3 {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.work-body p {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 540px;
+}
+.work-tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--foam);
+  border: 1px solid var(--rule);
+  padding: 5px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+  margin-top: 4px;
+}
+.work-arrow {
+  font-size: 22px;
+  color: var(--muted);
+  align-self: center;
+  transition: transform 0.2s var(--ease), color 0.2s;
+  flex-shrink: 0;
+}
+.work-item:hover .work-arrow { transform: translate(4px, -4px); color: var(--fern); }
+.work-item:hover h3 { color: var(--fern); }
+
+/* ===== CONCEPTS ===== */
+.concepts { background: var(--forest); color: white; }
+.concepts .label { color: #7bbf96; }
+.concepts .section-header h2 { color: white; }
+.concepts .section-header p { color: #9fcfb1; }
+.concept-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.concept-card {
+  background: rgba(255,255,255,0.06);
+  padding: 36px 32px;
+}
+.concept-card:first-child { border-radius: 16px 0 0 16px; }
+.concept-card:last-child { border-radius: 0 16px 16px 0; }
+.concept-card h3 {
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: white;
+  margin-bottom: 14px;
+}
+.concept-card p {
+  font-size: 15px;
+  color: #9fcfb1;
+  line-height: 1.6;
+}
+.concept-example {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  border-left: 3px solid var(--sprout);
+}
+.concept-example .ex-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sprout);
+  margin-bottom: 8px;
+  display: block;
+}
+.concept-example p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #d8f0e3;
+}
+
+/* ===== CALCULATOR ===== */
+.calculator { background: #0a2619; color: white; padding: 72px 0; }
+.calculator .label { color: #7bbf96; }
+.calculator h2 {
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  color: white;
+  margin: 10px 0 14px;
+}
+.calculator .section-header p { color: #9fcfb1; }
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 40px;
+}
+.calc-form { display: grid; gap: 20px; }
+.calc-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7bbf96;
+  margin-bottom: 8px;
+}
+.calc-form input {
+  width: 100%;
+  font: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+.calc-form input::-webkit-outer-spin-button,
+.calc-form input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.calc-form input:focus { outline: 2px solid var(--sprout); outline-offset: 2px; border-color: transparent; }
+.calc-result {
+  background: rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 36px;
+}
+.calc-result .result-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7bbf96;
+  margin-bottom: 12px;
+}
+.calc-result output {
+  display: block;
+  font-size: clamp(44px, 6vw, 72px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--sprout);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.calc-result .result-sub {
+  font-size: 15px;
+  color: #9fcfb1;
+  line-height: 1.5;
+}
+.disclosure {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+  margin-top: 20px;
+}
+.disclosure a { color: rgba(255,255,255,0.5); text-underline-offset: 3px; }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials { background: var(--foam); padding: 90px 0; }
+.quotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 48px;
+}
+.quote {
+  background: white;
+  padding: 32px 36px;
+}
+.quote blockquote {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.quote cite {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-style: normal;
+}
+.cite-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.cite-role {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ===== CTA ===== */
+.cta {
+  background: var(--sprout);
+  color: var(--forest);
+  padding: 80px 0;
+  text-align: center;
+}
+.cta h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  margin-bottom: 16px;
+}
+.cta p {
+  font-size: 18px;
+  opacity: 0.75;
+  margin-bottom: 36px;
+  max-width: 480px;
+  margin-inline: auto;
+}
+.cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.btn-dark { background: var(--forest); color: white; }
+.btn-dark:hover { background: #0a2619; }
+.btn-outline { border: 2px solid var(--forest); color: var(--forest); background: transparent; }
+.btn-outline:hover { background: var(--forest); color: white; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--forest);
+  color: #7bbf96;
+  padding: 32px 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 14px;
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+}
+.reveal.on { opacity: 1; transform: none; }
+.rd1 { transition-delay: 0.05s; }
+.rd2 { transition-delay: 0.12s; }
+.rd3 { transition-delay: 0.19s; }
+.rd4 { transition-delay: 0.26s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn { transition: none; }
+  .work-item { transition: none; }
+  .work-arrow { transition: none; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .portrait-wrap { max-width: 220px; justify-self: start; }
+  .concept-grid { grid-template-columns: 1fr; gap: 2px; }
+  .concept-card:first-child { border-radius: 16px 16px 0 0; }
+  .concept-card:last-child { border-radius: 0 0 16px 16px; }
+  .calc-grid { grid-template-columns: 1fr; gap: 32px; }
+  .quotes { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .sh { width: calc(100% - 32px); }
+  section { padding: 64px 0; }
+  .hero { padding: 56px 0 0; }
+  .work-item { grid-template-columns: 36px 1fr auto; gap: 16px; }
+  .nav-links { gap: 16px; }
+  .exp-inner { gap: 20px; }
+  .exp-divider { display: none; }
+  .quote { padding: 24px 20px; }
+}
+
+.application-role{font-size:14px;color:#b8d9c5;margin-bottom:18px}.showcase-intro{margin:60px 0 20px}.showcase-intro h3,.list-heading{font-size:26px;letter-spacing:-.03em}.showcase-intro p,.brand-section p{color:var(--muted);margin-top:8px}.showcase-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:none;padding:4px 0 20px;overscroll-behavior-inline:contain}.showcase-piece{scroll-snap-align:start;flex:0 0 min(470px,82vw);color:inherit;text-decoration:none;background:#fff;border:1px solid var(--rule);border-radius:12px;overflow:hidden}.showcase-piece img{width:100%;height:360px;object-fit:contain;object-position:center;background:#eaf1e5}.showcase-piece span{display:block;padding:18px 20px;color:var(--muted);font-size:13px}.showcase-piece strong{display:block;color:var(--ink);font-size:18px;margin-top:3px}.showcase-track:focus-visible{outline:3px solid var(--fern);outline-offset:3px}.list-heading{margin:54px 0 20px}.brand-section{background:var(--foam);padding:76px 0}.brand-section h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.04em}.brand-grid{list-style:none;padding:0;margin:30px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.brand-grid li{padding:16px 18px;border:1px solid var(--rule);border-radius:10px;background:#fff;font-weight:600}@media(max-width:650px){.brand-grid{grid-template-columns:repeat(2,1fr)}.showcase-piece img{height:300px}} 
+
+ .hero h1{letter-spacing:-.035em}.concept-example{border-left:0}.motion-control{font:inherit;font-size:14px;font-weight:600;color:var(--fern);background:transparent;border:1px solid var(--rule);border-radius:100px;padding:8px 14px;margin-top:14px;cursor:pointer}.motion-control:focus-visible{outline:3px solid var(--fern);outline-offset:3px}
+
+.day-one-list{border-top:1px solid rgba(255,255,255,.24)}.day-one-item{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:36px 0;border-bottom:1px solid rgba(255,255,255,.24)}.day-one-item h3{font-size:clamp(22px,2.4vw,30px);line-height:1.15;letter-spacing:-.025em;color:white;margin-bottom:12px}.day-one-item p{color:#b8d9c5;max-width:46ch;font-size:16px}.sample{background:rgba(255,255,255,.07);padding:24px;border-radius:12px}.sample span{display:block;color:#9fcfb1;font-size:13px;margin-bottom:14px}.sample strong{display:block;color:white;font-size:23px;line-height:1.2;letter-spacing:-.02em;margin-bottom:8px}.day-one-note{color:#b8d9c5;font-size:13px;max-width:75ch;margin-top:24px}@media(max-width:700px){.day-one-item{grid-template-columns:1fr;gap:20px;padding:28px 0}}
+
+.swap-pair{display:grid;gap:10px}.sample a{color:inherit;text-underline-offset:3px}.swap-disclaimer{font-size:13px!important;opacity:.85}.day-one .sample span{font-weight:600}.day-one .sample+.sample{background:rgba(111,201,111,.13)}
+
+.brand-grid li{padding:0}.brand-grid li a{display:flex;align-items:center;min-height:56px;padding:16px 18px;text-decoration:none;border-radius:9px}.brand-grid li a:hover{background:var(--light);color:var(--fern)}.brand-grid li a:focus-visible{outline:3px solid var(--fern);outline-offset:2px}
+
+.dash-note{font-size:12px;color:#b8d9c5;margin-top:12px}.hero-sub sup{font-size:.58em;vertical-align:super;margin-left:2px}.hero-sub sup a{color:inherit;text-underline-offset:2px}
+
+/* Clearer hover feedback and keyboard equivalents. */
+footer .dash-note{margin:0 0 22px;color:#d2e9d8;scroll-margin-top:90px}
+footer .dash-note:target{color:#fff}
+.brand-grid li{transition:background-color .18s ease,box-shadow .18s ease,border-color .18s ease}
+.brand-grid li:focus-within{border-color:var(--fern)}
+.work-item{border-radius:6px;transition:background-color .18s ease,color .18s ease}
+.work-item:focus-visible,.showcase-piece:focus-visible{outline:3px solid var(--fern);outline-offset:3px}
+.showcase-piece{transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.nav-links a:focus-visible,.btn:focus-visible{outline:3px solid var(--sprout);outline-offset:4px}
+@media (hover:hover) and (pointer:fine){
+.brand-grid li:hover{background:#d9f3c8;border-color:#498c58;box-shadow:0 3px 12px rgba(15,51,34,.12)}
+.brand-grid li a:hover{background:transparent;color:#103b25;text-decoration:underline;text-underline-offset:4px}
+.work-item:hover{background:#e3f2d9}
+.showcase-piece:hover{border-color:var(--fern);box-shadow:0 6px 20px rgba(15,51,34,.16);transform:translateY(-3px)}
+.showcase-piece:hover strong{text-decoration:underline;text-underline-offset:4px}
+}
+@media(prefers-reduced-motion:reduce){.brand-grid li,.work-item,.showcase-piece{transition:none}.showcase-piece:hover{transform:none}}
+
+
+.swap-case{padding:46px 0 54px;border-top:1px solid rgba(255,255,255,.25)}.swap-intro{margin-bottom:24px}.swap-intro h3{font-size:clamp(24px,2.5vw,32px);line-height:1.15;color:#fff;letter-spacing:-.025em}.swap-intro p{color:#b8d9c5;margin-top:6px}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:18px}.comparison-label{display:flex;justify-content:space-between;gap:12px;color:#fff;font-size:15px;font-weight:700;margin-bottom:10px}.comparison-label a,.comparison-label span{font-size:12px;font-weight:500;color:#b8d9c5}.comparison-label a{text-underline-offset:3px}.mock-page{background:#fff;color:#143724;border-radius:10px;overflow:hidden;min-height:270px}.mock-top{padding:15px 22px;border-bottom:1px solid #e3eae0;font-size:17px;line-height:1;font-weight:800;letter-spacing:-.02em}.mock-top span{float:right;color:#567361;font-size:12px;font-weight:600;letter-spacing:0}.mock-content{padding:34px 32px 44px}.mock-content h4{font-size:clamp(25px,2.7vw,37px);letter-spacing:-.035em;line-height:1.12;color:#123b29;margin-bottom:18px}.mock-content p{color:#304e3b;font-size:16px;line-height:1.5;max-width:46ch}.comparison-col{padding-bottom:30px}@media(max-width:700px){.comparison{grid-template-columns:1fr;gap:14px}.comparison-col{padding-bottom:8px}.mock-page{min-height:0}.mock-content{padding:28px 24px 34px}.mock-content h4{font-size:28px}.swap-case{padding:32px 0}}
+
+.featured-wrap{border-top:1px solid var(--rule);padding:36px 0 26px;min-height:220px}.featured-quote blockquote{font-size:clamp(22px,2.4vw,32px);line-height:1.35;letter-spacing:-.025em;max-width:48ch;margin:0 0 22px;color:var(--ink)}.featured-quote cite{font-style:normal;display:flex;flex-direction:column;gap:3px}.reco-controls{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 36px}.reco-person{font:inherit;font-size:14px;font-weight:600;color:var(--forest);border:1px solid #a8c99e;border-radius:999px;background:transparent;padding:9px 14px;cursor:pointer}.reco-person[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:#fff}.reco-person:hover:not([aria-pressed="true"]){background:#d7edca}.reco-person:focus-visible,.all-recommendations summary:focus-visible{outline:3px solid var(--fern);outline-offset:3px}.all-recommendations{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}.all-recommendations summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-weight:700;color:var(--forest)}.all-recommendations summary::-webkit-details-marker{display:none}.all-recommendations summary span{font-size:24px}.all-recommendations[open] summary span{transform:rotate(45deg)}.recommendations-list{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:24px}.recommendations-list .quote{opacity:1;transform:none}.testimonials .section-header{margin-bottom:28px}@media(max-width:700px){.recommendations-list{grid-template-columns:1fr}.featured-wrap{min-height:0}.reco-controls{gap:7px}.reco-person{font-size:13px}}
+
+.cta{position:relative;overflow:hidden}.cta>.sh{position:relative;z-index:1}.oak-detail{position:absolute;right:clamp(-65px,2vw,35px);top:-15px;width:clamp(150px,19vw,260px);height:auto;color:#163f29;opacity:.42;pointer-events:none}.falling-acorn{transform-box:fill-box;transform-origin:center}.cta.acorn-in-view .falling-acorn{animation:acorn-fall 1.65s cubic-bezier(.3,.04,.7,1) .35s both}@keyframes acorn-fall{0%{transform:translate(0,0) rotate(0deg);opacity:1}65%{opacity:1}100%{transform:translate(-20px,115px) rotate(42deg);opacity:0}}@media(max-width:700px){.oak-detail{width:150px;right:-60px;top:-15px;opacity:.24}.cta>.sh{z-index:1}}@media(prefers-reduced-motion:reduce){.cta.acorn-in-view .falling-acorn{animation:none}}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- NAV -->
+<nav aria-label="Site navigation">
+  <div class="sh nav-inner">
+    <a class="brand" href="#main">Bud Hennekes</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a class="nav-resume" href="Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="sh hero-grid">
+    <div>
+      <p class="application-role">Senior Copywriter application for Acorns</p>
+      <h1 id="hero-heading">Good things start with small steps. So does good copy.</h1>
+      <p class="hero-sub">I&rsquo;ve spent 10+ years writing about money, business, and technology. I&rsquo;d love to bring that experience to Acorns&mdash;<sup><a href="#human-dash" aria-label="Read a note about this em dash">1</a></sup>and help more people feel confident about their money and their future.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#work">See the work</a>
+        <a class="btn btn-ghost" href="mailto:bud@aboundlessworld.com">Get in touch</a>
+      </div>
+      <p class="hero-meta">San Antonio, Texas &middot; <a href="https://www.linkedin.com/in/budhennekes/" rel="noopener" target="_blank">LinkedIn</a></p>
+    </div>
+    <div class="portrait-wrap" aria-hidden="true">
+      <img src="bud-portrait.png" alt="Bud Hennekes" width="300" height="300">
+    </div>
+  </div>
+</section>
+
+<!-- EXP BAR -->
+
+</div>
+
+<!-- WORK -->
+<section id="work" aria-labelledby="work-heading">
+  <div class="sh">
+    <div class="section-header">
+      
+      <h2 id="work-heading" class="reveal">Work that helps people make sense of money.</h2>
+      <p class="reveal rd1">A selection of campaign, product, and educational work for investors.</p>
+    </div>
+
+<div class="showcase-intro"><h3>Campaign and landing page work</h3><p>Selected creative for Schwab and other brands. Scroll to explore.</p><button type="button" class="motion-control" aria-pressed="false">Pause scrolling</button></div><div class="showcase-track" tabindex="0" role="region" aria-label="Campaign and landing page work, scroll horizontally"><a class="showcase-piece" href="assets/schwab-crypto-human-standards.png" target="_blank" rel="noopener"><img src="assets/schwab-crypto-human-standards.png" alt="Digital assets. Human standards." loading="lazy"><span>Schwab Crypto campaign<strong>Digital assets. Human standards.</strong></span></a><a class="showcase-piece" href="assets/schwab-crypto-made-clear.png" target="_blank" rel="noopener"><img src="assets/schwab-crypto-made-clear.png" alt="Crypto made clear" loading="lazy"><span>Schwab Crypto campaign<strong>Crypto made clear</strong></span></a><a class="showcase-piece" href="assets/schwab-crypto-see-new-way.png" target="_blank" rel="noopener"><img src="assets/schwab-crypto-see-new-way.png" alt="See crypto in a new way" loading="lazy"><span>Schwab Crypto campaign<strong>See crypto in a new way</strong></span></a><a class="showcase-piece" href="assets/schwab-thematic-investing.png" target="_blank" rel="noopener"><img src="assets/schwab-thematic-investing.png" alt="Thematic investing website" loading="lazy"><span>Schwab investing<strong>Thematic investing website</strong></span></a><a class="showcase-piece" href="assets/schwab-singapore-legacy-campaign.png" target="_blank" rel="noopener"><img src="assets/schwab-singapore-legacy-campaign.png" alt="International campaign" loading="lazy"><span>Schwab Singapore<strong>International campaign</strong></span></a><a class="showcase-piece" href="assets/walk-of-the-town-austin.png" target="_blank" rel="noopener"><img src="assets/walk-of-the-town-austin.png" alt="Product copy" loading="lazy"><span>Walk of the Town<strong>Product copy</strong></span></a><a class="showcase-piece" href="assets/marcus-millichap-careers.png" target="_blank" rel="noopener"><img src="assets/marcus-millichap-careers.png" alt="Employer brand copy" loading="lazy"><span>Marcus &amp; Millichap<strong>Employer brand copy</strong></span></a></div>
+    <h3 class="list-heading">More work to explore</h3>
+    <div class="work-list" role="list"><a class="work-item reveal" href="https://www.schwab.com/options" target="_blank" rel="noopener"><div class="work-num" aria-hidden="true">01</div><div class="work-body"><h3>Options trading at Schwab</h3><p>A landing page that helps investors explore options, tools, and education. Through Third Rail Creative.</p></div><div class="work-arrow" aria-hidden="true">&#8599;</div></a>
+
+      <a class="work-item reveal" href="https://www.schwab.com/cryptocurrency" target="_blank" rel="noopener" aria-label="Schwab Crypto education (opens in new tab)" role="listitem">
+        <div class="work-num" aria-hidden="true">02</div>
+        <div class="work-body">
+          <h3>Schwab Crypto education</h3>
+          <p>Financial education for people exploring digital assets. Created through Third Rail Creative, with the investor and the details in mind.</p>
+        </div>
+        <div class="work-arrow" aria-hidden="true">&#8599;</div>
+      </a>
+
+      <a class="work-item reveal rd1" href="https://www.schwab.com/trading/thinkorswim/compare-platforms" target="_blank" rel="noopener" aria-label="thinkorswim platform comparison (opens in new tab)" role="listitem">
+        <div class="work-num" aria-hidden="true">03</div>
+        <div class="work-body">
+          <h3>thinkorswim platform comparison</h3>
+          <p>Product copy that helps traders compare platforms and find the right fit. Through Third Rail Creative.</p>
+        </div>
+        <div class="work-arrow" aria-hidden="true">&#8599;</div>
+      </a>
+
+      <a class="work-item reveal rd2" href="https://cxl.com/blog/market-positioning/" target="_blank" rel="noopener" aria-label="Market positioning guide on CXL (opens in new tab)" role="listitem">
+        <div class="work-num" aria-hidden="true">04</div>
+        <div class="work-body">
+          <h3>Market positioning guide</h3>
+          <p>A strategy guide for turning a market position into something a brand can actually explain. Published at CXL.</p>
+        </div>
+        <div class="work-arrow" aria-hidden="true">&#8599;</div>
+      </a>
+
+      <a class="work-item reveal rd3" href="https://cxl.com/blog/learn-digital-marketing/" target="_blank" rel="noopener" aria-label="Make time to learn on CXL (opens in new tab)" role="listitem">
+        <div class="work-num" aria-hidden="true">05</div>
+        <div class="work-body">
+          <h3>How the best marketers make time to learn</h3>
+          <p>A piece about why getting better at your craft is part of the job, not something that happens after. Published at CXL.</p>
+        </div>
+        <div class="work-arrow" aria-hidden="true">&#8599;</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="brand-section" aria-labelledby="brands-title"><div class="sh"><h2 id="brands-title">Brands I&rsquo;ve worked with.</h2><p>Includes full-time positions and freelance work.</p><ul class="brand-grid"><li><a href="https://thirdrailcreative.com/" target="_blank" rel="noopener noreferrer">Third Rail Creative</a></li><li><a href="https://www.schwab.com/" target="_blank" rel="noopener noreferrer">Charles Schwab</a></li><li><a href="https://cxl.com/" target="_blank" rel="noopener noreferrer">CXL</a></li><li><a href="https://www.moonpay.com/" target="_blank" rel="noopener noreferrer">MoonPay</a></li><li><a href="https://www.shopify.com/" target="_blank" rel="noopener noreferrer">Shopify</a></li><li><a href="https://www.marcusmillichap.com/" target="_blank" rel="noopener noreferrer">Marcus &amp; Millichap</a></li><li><a href="https://www.heap.io/" target="_blank" rel="noopener noreferrer">Heap</a></li><li><a href="https://www.parcl.co/" target="_blank" rel="noopener noreferrer">Parcl</a></li><li><a href="https://www.quantcast.com/" target="_blank" rel="noopener noreferrer">Quantcast</a></li><li><a href="https://algorand.co/" target="_blank" rel="noopener noreferrer">Algorand</a></li><li><a href="https://lex.substack.com/" target="_blank" rel="noopener noreferrer">The Fintech Blueprint</a></li></ul></div></section>
+<!-- COPY SWAPS -->
+<section class="concepts day-one" aria-labelledby="concepts-heading"><div class="sh">
+<div class="section-header"><h2 id="concepts-heading">Acorn copy, rounded up.</h2><p>A few Acorns copy swaps I&rsquo;d make on day one.</p><p class="swap-disclaimer">Independent concepts. Not produced for or approved by Acorns.</p></div>
+<div class="swap-series">
+<article class="swap-case"><div class="swap-intro"><h3>Make room for questions.</h3><p>Acorns Learn</p></div><div class="comparison">
+<div class="comparison-col"><div class="comparison-label">Before <a href="https://www.acorns.com/learn/" target="_blank" rel="noopener">Original source &#8599;</a></div><div class="mock-page"><div class="mock-top">acorns <span>Learn</span></div><div class="mock-content"><h4>Learn</h4><p>Grow your financial confidence with videos, articles, and tips for investors both experienced and new.</p></div></div></div>
+<div class="comparison-col"><div class="comparison-label">After <span>Independent concept</span></div><div class="mock-page"><div class="mock-top">acorns <span>Learn</span></div><div class="mock-content"><h4>Big money questions welcome.</h4><p>Find articles, videos, and tips for wherever you are in your investing journey.</p></div></div></div>
+</div></article>
+<article class="swap-case"><div class="swap-intro"><h3>Make automation feel like a choice.</h3><p>Money Manager</p></div><div class="comparison">
+<div class="comparison-col"><div class="comparison-label">Before <a href="https://www.acorns.com/money-manager/" target="_blank" rel="noopener">Original source &#8599;</a></div><div class="mock-page"><div class="mock-top">acorns <span>Money Manager</span></div><div class="mock-content"><h4>Introducing Acorns Money Manager</h4><p>Your money, smartly split across investing, saving, and spending &mdash; automatically.</p></div></div></div>
+<div class="comparison-col"><div class="comparison-label">After <span>Independent concept</span></div><div class="mock-page"><div class="mock-top">acorns <span>Money Manager</span></div><div class="mock-content"><h4>Put your money on a plan. Keep yourself in control.</h4><p>Split deposits across investing, saving, and spending automatically. Adjust your splits when life changes.</p></div></div></div>
+</div></article>
+<article class="swap-case"><div class="swap-intro"><h3>Make the plan choice feel personal.</h3><p>Plans and pricing</p></div><div class="comparison">
+<div class="comparison-col"><div class="comparison-label">Before <a href="https://www.acorns.com/pricing/" target="_blank" rel="noopener">Original source &#8599;</a></div><div class="mock-page"><div class="mock-top">acorns <span>Plans &amp; pricing</span></div><div class="mock-content"><h4>Plans &amp; pricing</h4><p>Whether you&rsquo;re new to investing or planning ahead for your family&rsquo;s future, we bundle our products, tools, and education into subscription plans &mdash; each curated to meet you at whichever stage of life you&rsquo;re in.</p></div></div></div>
+<div class="comparison-col"><div class="comparison-label">After <span>Independent concept</span></div><div class="mock-page"><div class="mock-top">acorns <span>Plans &amp; pricing</span></div><div class="mock-content"><h4>One plan. Your kind of future.</h4><p>Compare what&rsquo;s included and what you&rsquo;ll pay. Find the tools that fit the life you&rsquo;re building.</p></div></div></div>
+</div></article></div>
+<p class="day-one-note">Page designs are simplified representations, not screenshots. Original copy links to its source and may change. Proposed copy requires product, legal, and compliance review.</p></div></section>
+<!-- CALCULATOR -->
+<section class="calculator" aria-labelledby="calc-heading">
+  <div class="sh">
+    <span class="label">An independent creative concept &middot; Not an Acorns product</span>
+    <h2 id="calc-heading">See your small change in a new light.</h2>
+    <p style="color:#9fcfb1;font-size:17px;margin-top:8px;max-width:520px;">Round-Ups turn spare change from purchases into investments. What if you could see that potential through something you already know, like your weekly coffee? Explore what investing an equivalent amount could look like over time. This illustration does not calculate actual Round-Ups.</p>
+
+    <div class="calc-grid">
+      <div class="calc-form">
+        <div>
+          <label for="coffee">A coffee costs about ($)</label>
+          <input id="coffee" type="number" min="0" max="99" step="0.5" value="6" inputmode="decimal" aria-describedby="coffee-hint">
+          <span id="coffee-hint" style="font-size:12px;color:#7bbf96;margin-top:4px;display:block;">Try $5 for drip, $7 for a latte</span>
+        </div>
+        <div>
+          <label for="visits">Coffee runs per week</label>
+          <input id="visits" type="number" min="0" max="50" step="1" value="2" inputmode="numeric" aria-describedby="visits-hint">
+          <span id="visits-hint" style="font-size:12px;color:#7bbf96;margin-top:4px;display:block;">Enter a number from 0 to 50</span>
+        </div>
+        <div>
+          <label for="years">Years of investing</label>
+          <input id="years" type="number" min="1" max="50" step="1" value="20" inputmode="numeric" aria-describedby="years-hint">
+          <span id="years-hint" style="font-size:12px;color:#7bbf96;margin-top:4px;display:block;">1 to 50 years</span>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <p class="result-label">Hypothetical value</p>
+        <output id="calc-out" aria-live="polite" aria-atomic="true">$29,661</output>
+        <p class="result-sub">based on a hypothetical 8% annual return, before fees and taxes</p>
+        <div class="disclosure">
+          This is an illustration, not a prediction. Investments can lose value. Returns are not guaranteed. Acorns subscription fees, underlying fund expenses, taxes, and inflation are not reflected. Concept only. Requires product, legal, and compliance review before use. <a href="https://www.acorns.com/pricing/" target="_blank" rel="noopener">See Acorns pricing.</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" aria-labelledby="testimonials-heading"><div class="sh">
+<div class="section-header"><h2 id="testimonials-heading">Nice things nice people say about me.</h2></div>
+<div class="recommendations" data-recommendations>
+<div class="featured-wrap" aria-live="polite" aria-atomic="true"><article class="featured-quote" role="listitem">
+        <blockquote>&ldquo;Working with Bud is easy. His copy is consistent, he&rsquo;s always pushing to use AI to work smarter, and he has a real feel for what Schwab needs. Best of all, he makes the whole team look good.&rdquo;</blockquote>
+        <cite>
+          <span class="cite-name">Jill Bailey</span>
+          <span class="cite-role">Account Executive, Third Rail Creative</span>
+        </cite>
+      </article></div>
+<div class="reco-controls" role="group" aria-label="Choose a recommendation"><button type="button" class="reco-person" data-index="0" aria-pressed="true">Jill Bailey</button><button type="button" class="reco-person" data-index="1" aria-pressed="false">Lex Sokolin</button><button type="button" class="reco-person" data-index="2" aria-pressed="false">Alex Akins</button><button type="button" class="reco-person" data-index="3" aria-pressed="false">Annie Blalock Townsend</button><button type="button" class="reco-person" data-index="4" aria-pressed="false">Corey Barchat</button><button type="button" class="reco-person" data-index="5" aria-pressed="false">Brendan Hufford</button><button type="button" class="reco-person" data-index="6" aria-pressed="false">Jessica Foster</button><button type="button" class="reco-person" data-index="7" aria-pressed="false">Steven Fitz</button></div>
+<details class="all-recommendations"><summary>Read all recommendations <span aria-hidden="true">+</span></summary><div class="recommendations-list"><article class="quote reveal" role="listitem">
+        <blockquote>&ldquo;Working with Bud is easy. His copy is consistent, he&rsquo;s always pushing to use AI to work smarter, and he has a real feel for what Schwab needs. Best of all, he makes the whole team look good.&rdquo;</blockquote>
+        <cite>
+          <span class="cite-name">Jill Bailey</span>
+          <span class="cite-role">Account Executive, Third Rail Creative</span>
+        </cite>
+      </article>
+<article class="quote reveal rd1" role="listitem">
+        <blockquote>&ldquo;I&rsquo;ve worked with Bud for four years, and he&rsquo;s been instrumental in growing my AI newsletter, The Future Blueprint, and in marketing The Fintech Blueprint, my newsletter and podcast decoding the technology reshaping financial services. What consistently impresses me is his rare instinct for finding better ways to reach an audience, and how he acts on it before anyone asks.&rdquo;</blockquote>
+        <cite>
+          <span class="cite-name">Lex Sokolin</span>
+          <span class="cite-role">Author, The Fintech Blueprint</span>
+        </cite>
+      </article>
+<article class="quote reveal rd2" role="listitem">
+        <blockquote>&ldquo;During my time as Head of Growth at CXL, I had the opportunity to manage Bud and was consistently impressed by how quickly he grew and continued to raise the bar for CXL&rsquo;s content. In particular, he did an exceptional job managing CXL&rsquo;s roster of contributors and ensuring their work met the company&rsquo;s exceptionally high standards.&rdquo;</blockquote>
+        <cite>
+          <span class="cite-name">Alex Akins</span>
+          <span class="cite-role">VP of Growth &amp; Ops, Sturdy.ai</span>
+        </cite>
+      </article>
+<article class="quote reveal rd3" role="listitem">
+        <blockquote>&ldquo;I&rsquo;ve had the good fortune of working with Bud at both CXL and Third Rail Creative. When we needed a senior fintech writer at 3RC, I recommended him because I already knew I could trust his work. Bud brings real care to important projects, and I was glad to have the chance to work with him again.&rdquo;</blockquote>
+        <cite>
+          <span class="cite-name">Annie Blalock Townsend</span>
+          <span class="cite-role">Account Executive, Third Rail Creative</span>
+        </cite>
+      </article>
+<article class="quote reveal" role="listitem">
+        <blockquote>&ldquo;Bud was an invaluable mentor to me during our time together at MoonPay. He struck the perfect balance between constructive feedback and pushing me to do my best work. I still carry the many lessons he taught me about writing and content marketing into my current role.&rdquo;</blockquote>
+        <cite>
+          <span class="cite-name">Corey Barchat</span>
+          <span class="cite-role">SEO Content Manager, Fanatics</span>
+        </cite>
+      </article>
+<article class="quote reveal rd1" role="listitem">
+        <blockquote>&ldquo;Bud demonstrated not only his passion for producing high-quality content, but also the ability to think strategically about what separates good from meh.&rdquo;</blockquote>
+        <cite>
+          <span class="cite-name">Brendan Hufford</span>
+          <span class="cite-role">SEO Director, Clique Studios</span>
+        </cite>
+      </article>
+<article class="quote reveal rd2" role="listitem">
+        <blockquote>&ldquo;Bud was my go-to when I needed high-quality B2B content quickly. It&rsquo;s refreshing to work with someone who clearly lives and breathes the content space.&rdquo;</blockquote>
+        <cite>
+          <span class="cite-name">Jessica Foster</span>
+          <span class="cite-role">Founder, Keys &amp; Copy</span>
+        </cite>
+      </article>
+<article class="quote reveal rd3" role="listitem">
+        <blockquote>&ldquo;Bud produced high-quality, long-form case studies. He understood our audience, incorporated our core messaging, and perfectly captured our brand. His work helped drive SEO and new business revenue.&rdquo;</blockquote>
+        <cite>
+          <span class="cite-name">Steven Fitz</span>
+          <span class="cite-role">Product, Heap.io</span>
+        </cite>
+      </article></div></details>
+</div></div></section>
+<!-- CTA -->
+<section class="cta" aria-labelledby="cta-heading">
+  <svg class="oak-detail" viewBox="0 0 260 250" aria-hidden="true" focusable="false">
+   <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M252 15C198 34 162 51 116 97"/><path d="M189 43C185 29 177 19 163 12M164 59c-11-5-25-6-38-2M142 77c-4-12-13-22-25-27"/>
+    <path d="M165 15c-17 1-26-3-31-12 14-4 25-2 31 12ZM126 57c-12 13-25 15-37 11 7-12 18-16 37-11ZM118 50c-16-2-25-10-28-22 13 0 23 7 28 22Z"/>
+   </g>
+   <g class="falling-acorn"><path d="M115 100c0 0-2 5-2 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M99 113c1-11 7-17 16-17s16 6 17 17c-2 15-10 23-17 27-7-4-15-12-16-27Z" fill="currentColor"/><path d="M96 112c3-9 10-14 19-14s16 5 19 14c-12-3-26-3-38 0Z" fill="var(--sprout)" stroke="currentColor" stroke-width="2.5"/></g>
+  </svg>
+  <div class="sh">
+    <h2 id="cta-heading">Let&rsquo;s give more people a reason to feel good about their future.</h2>
+    <p>I&rsquo;d love to bring my experience and ideas to Acorns. Let&rsquo;s talk.</p>
+    <div class="cta-actions">
+      <a class="btn btn-dark" href="mailto:bud@aboundlessworld.com">Email Bud</a>
+      <a class="btn btn-outline" href="Resume.pdf" target="_blank" rel="noopener">View resume</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="sh"><p id="human-dash" class="dash-note" tabindex="-1"><sup>1</sup> 100% human-written em dash.</p></div>
+  <div class="sh footer-inner">
+    <span>Bud Hennekes &middot; bud@aboundlessworld.com</span>
+    <span>San Antonio, TX &middot; 925-247-4957</span>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav scroll state
+const header = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  document.documentElement.classList.toggle('scrolled', window.scrollY > 10);
+}, {passive: true});
+
+// Calculator
+function calc() {
+  const c = parseFloat(document.getElementById('coffee').value) || 0;
+  const v = parseFloat(document.getElementById('visits').value) || 0;
+  const y = Math.min(Math.max(parseFloat(document.getElementById('years').value) || 0, 0), 50);
+  const weekly = c * v;
+  const monthly = weekly * 52 / 12;
+  const r = 0.08 / 12;
+  const n = y * 12;
+  let fv = 0;
+  if (r > 0 && n > 0) {
+    fv = monthly * ((Math.pow(1 + r, n) - 1) / r);
+  } else {
+    fv = monthly * n;
+  }
+  document.getElementById('calc-out').textContent = '$' + Math.round(fv).toLocaleString('en-US');
+}
+['coffee','visits','years'].forEach(id => document.getElementById(id).addEventListener('input', calc));
+calc();
+
+// The work marquee pauses for reading, keyboard use, and reduced motion.
+const track = document.querySelector('.showcase-track');
+const toggle = document.querySelector('.motion-control');
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+let paused = reduced.matches, hovering = false, lastFrame = 0, accumulator = 0;
+function labelMotion(){ toggle.textContent = paused ? 'Play scrolling' : 'Pause scrolling'; toggle.setAttribute('aria-pressed', String(paused)); }
+labelMotion();
+toggle.addEventListener('click',()=>{paused=!paused;lastFrame=0;labelMotion()});
+track.addEventListener('pointerenter',()=>hovering=true);
+track.addEventListener('pointerleave',()=>hovering=false);
+track.addEventListener('focusin',()=>hovering=true);
+track.addEventListener('focusout',()=>hovering=false);
+track.addEventListener('touchstart',()=>{paused=true;labelMotion()},{passive:true});
+reduced.addEventListener('change',e=>{if(e.matches){paused=true;labelMotion()}});
+function moveTrack(t){if(!paused&&!hovering&&track.scrollWidth>track.clientWidth){if(lastFrame){accumulator+=Math.min(t-lastFrame,50)*0.02;if(accumulator>=1){track.scrollLeft+=Math.floor(accumulator);accumulator%=1;if(track.scrollLeft>=track.scrollWidth-track.clientWidth-1)track.scrollLeft=0}}lastFrame=t}else lastFrame=0;requestAnimationFrame(moveTrack)}
+requestAnimationFrame(moveTrack);
+
+
+// Native buttons choose a recommendation; the full list works without JavaScript.
+const recos = document.querySelector('[data-recommendations]');
+if(recos){const quotes=[...recos.querySelectorAll('.recommendations-list .quote')];const featured=recos.querySelector('.featured-wrap');const buttons=[...recos.querySelectorAll('.reco-person')];buttons.forEach((button,i)=>button.addEventListener('click',()=>{const item=quotes[i].cloneNode(true);item.className='featured-quote';item.removeAttribute('role');featured.replaceChildren(item);buttons.forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)))}));}
+
+const closingSection=document.querySelector('.cta');
+if(closingSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){const closeObserver=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){closingSection.classList.add('acorn-in-view');closeObserver.disconnect()}},{threshold:.3});closeObserver.observe(closingSection)}
+</script>
+
+</body>
+</html>
